@@ -1,0 +1,10 @@
+table,dataset,model,params,accuracy_pct,seeds,notes
+II,MNIST,Dense MLP h128,167818,95.49,1,single-seed compression baseline
+II,MNIST,DTRN h16 r16,33002,95.64,1,5.1x parameter reduction at matched accuracy
+III,CIFAR-10,Dense h256,1184010,40.19 +/- 0.17,3,dense MLP baseline
+III,CIFAR-10,DTRN h128 r128,824714,57.49 +/- 0.17,3,+17.3 pp vs dense MLP
+IV,MNIST,Flat DTRN h32/r32,57064,11.35 +/- 0.00,3,low-budget flat/no-geometry collapse; controlled geometry ablation in Table VI
+IV,MNIST,PE-GADTRN-S,80647,99.30 +/- 0.04,3,"32% fewer params than dense, +0.40 pp; 16% fewer than matched CNN-w32 with small CNN accuracy gap"
+V,CIFAR-10,PE-GADTRN-M,211372,91.09 +/- 0.14,3,1.31 pp below CNN-w64 at 5% fewer params
+VI,MNIST,PE-GADTRN geometry axis,,99.47 +/- 0.04 vs 86.83 +/- 0.08,3,12.64 pp controlled geometry gap
+VII,CIFAR-10 block backend,Triton layer-parallel Givens,,output-preserving,,"5.8-6.3x Givens-block speedup, max abs error <=1.43e-6"

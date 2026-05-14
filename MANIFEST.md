@@ -1,0 +1,40 @@
+# Repository file manifest
+
+Snapshot: DTRN_PRX_v38
+
+- `.github/workflows/validate.yml`
+- `.gitignore`
+- `CITATION.cff`
+- `LICENSE_PENDING.md`
+- `README.md`
+- `checkpoints_manifest/SHA256SUMS.txt`
+- `checkpoints_manifest/external_artifacts.md`
+- `docs/cr2_timeline.md`
+- `docs/cr2_update_protocol.md`
+- `docs/github_release_checklist.md`
+- `docs/known_failure_modes.md`
+- `docs/method_overview.md`
+- `docs/reviewer_reproducibility_guide.md`
+- `environment/environment.yml`
+- `environment/mac_m1_notes.md`
+- `environment/requirements.txt`
+- `experiments/cr2/cas10/README.md`
+- `experiments/cr2/cas12/README.md`
+- `experiments/cr2/cas8/README.md`
+- `experiments/fe2/cas8/README.md`
+- `experiments/language/README.md`
+- `experiments/vision/README.md`
+- `paper/DTRN_PRX_v38.pdf`
+- `paper/README.md`
+- `results/paper_safe_json/qc_results_current.json`
+- `results/summary_tables/ml_language_results_current.csv`
+- `results/summary_tables/ml_vision_results_current.csv`
+- `results/summary_tables/paper_claim_status.csv`
+- `results/summary_tables/qc_claims_current.csv`
+- `results/summary_tables/qc_claims_current.md`
+- `scripts/generate_qc_summary_figure.py`
+- `scripts/render_current_tables.py`
+- `scripts/update_cr2_cas12.py`
+- `scripts/verify_qc_results.py`
+- `src/dtrn_structured_qc/__init__.py`
+- `src/dtrn_structured_qc/results.py`

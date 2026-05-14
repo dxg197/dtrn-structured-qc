@@ -1,0 +1,5 @@
+table,experiment,model,params,metric,value,notes
+VIII,FFN-only PE-GADTRN,Dense control,81.40M,WikiText-103 PPL,5693 +/- 324,matched recipe
+VIII,FFN-only PE-GADTRN,PE-GADTRN FFN,74.97M,WikiText-103 PPL,4574 +/- 284,"19.7% WT103 PPL improvement, 7.9% smaller"
+IX,DTRN-LoRA vs LoRA,LoRA r16,368640 trainable,mean PPL,167.34 +/- 0.71,standard LoRA
+IX,DTRN-LoRA vs LoRA,DTRN-LoRA r4/g3,129474 trainable,mean PPL,167.37 +/- 0.49,matches LoRA r16 within 0.02% at 35% trainable params

@@ -1,0 +1,14 @@
+claim,status,primary_evidence
+O(log N) parameter scaling,Proven,Appendix A
+Area-law entanglement bound,Proven with v38 mixer-crossing caveat,Appendix B
+Geometry alignment dominates performance,"Validated, 3 seeds","Tables IV, VI; flat DTRN collapses to 11.35%; controlled geometry gap = 12.64 pp"
+d/f hyperparameter robustness,"Validated, 3 seeds",Table VI; d- and f-sweeps flat within error bars
+FFN-only LM compression,"Validated, 2 seeds",Table VIII; 19.7% PPL improvement
+DTRN-LoRA at 35% trainable-parameter cost,"Validated, 3 seeds",Table IX; 0.02% PPL gap vs LoRA r16
+"Cr2 CAS(8,8) sub-mHa",Validated,Table XI; |Delta E| = 0.271 mHa
+"Cr2 CAS(10,10) chemical accuracy",Validated,"Table XII; 0.483 mHa, 8,176 dets"
+"Cr2 CAS(12,12) < 2 mHa",Validated,"Table XII; 1.491 mHa, 16,026 dets"
+"Fe2 CAS(8,8) sub-mHa",Validated,"Table XIII; 0.266 mHa, <S^2> = 9.5e-5"
+"Cr2 CAS(12,12) sub-mHa",In progress,Next-steps item (2); v21.3 checkpoint at 1.491 mHa; v21.4b restart in progress
+"Fe2 CAS(12,10) scaling",In progress,Next-steps item (3)
+DMRG-competitive accuracy,Not claimed,Future work

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the accompanying paper."
+title: "Dissipative Tensor Rotation Networks: A Classical Architecture for Parameter-Efficient Machine Learning and Strongly-Correlated Quantum Chemistry"
+authors:
+  - family-names: Garrison
+    given-names: David
+affiliation: "Generative Geniuses"
+date-released: 2026-05-12
+version: "pre-arxiv-v38-snapshot"
+repository-code: "https://github.com/dxg197/dtrn-structured-qc"
+license: "TBD"
+keywords:
+  - tensor networks
+  - structured compression
+  - selected configuration interaction
+  - quantum chemistry
+  - DTRN
+  - Cr2
+  - Fe2
