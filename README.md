@@ -1,59 +1,78 @@
-# Dissipative Tensor Rotation Networks: structured classical tensor factorizations for ML and quantum chemistry
+# DTRN PRX Intelligence reproducibility repository
 
-This repository is the planned artifact bundle for the paper:
+This repository is a GitHub-ready reproducibility package for the manuscript:
 
 **Dissipative Tensor Rotation Networks: A Classical Architecture for Parameter-Efficient Machine Learning and Strongly-Correlated Quantum Chemistry**  
-David Garrison, May 2026 draft.
+David Garrison, May 2026
 
-This snapshot is based on **DTRN_PRX_v38**. The repository is organized around paper claims and reproducibility, not around the historical development order. The Cr2 CAS(12,12) row is intentionally easy to update once the final v21.4b continuation data are available.
+It contains the latest PRX draft, primary Cr2 CAS(12,12) result data, supporting clean-v22/v23 code, legacy Cr2 provenance archives, generated analysis tables/plots, and scripts for endpoint verification and rerunning the primary calculation.
 
-## Current status
+## Primary result
 
-- Paper draft: `paper/DTRN_PRX_v38.pdf`
-- Current paper-safe result manifest: `results/paper_safe_json/qc_results_current.json`
-- Current claim table: `results/summary_tables/paper_claim_status.csv`
-- Cr2 CAS(12,12): current v38 row is **1.491 mHa at 16,026 determinants**, with v21.4b restart in progress.
-- PT2/EN2 values are diagnostic only. Use `E_var` as the paper-safe quantum-chemistry metric.
+The primary quantum-chemistry result is the clean v23 EN2-selected CI Cr2 CAS(12,12)/cc-pVDZ run:
 
-## Main claims tracked here
+| Quantity | Value |
+|---|---:|
+| Selected determinants | 102,001 |
+| E_var | -2086.650339037541 Ha |
+| E_ref / PySCF CASSCF | -2086.650833315363 Ha |
+| Gap | 0.4942778218719468 mHa |
+| Wall time | 1168.4298000335693 s = 19.47 min |
+| Machine | Apple M1 laptop-class, 16 GB RAM |
+| Solver | clean active-space selected CI with EN2-style candidate scoring |
 
-1. DTRN gives logarithmic parameter scaling through Kronecker products of SO(d) factors.
-2. Geometry/domain alignment is the decisive inductive bias.
-3. PE-GADTRN and DTRN-LoRA provide controlled parameter-efficiency demonstrations.
-4. DTRN-inspired selected-CI workflows recover strong Cr2/Fe2 active-space results on commodity hardware.
-5. Cr2 CAS(12,12) is currently below 2 mHa and pending final sub-mHa update.
+EN2 is used only for determinant selection/diagnostics; the reported energy is variational from selected-subspace diagonalization.
 
-## Repository layout
+## Repository map
 
 ```text
-paper/                  Manuscript PDF, figure/table notes
-src/                    Lightweight package namespace and utilities
-scripts/                Verification and update scripts
-results/                CSV/JSON paper-safe summaries
-experiments/            Per-domain README files and run manifests
-docs/                   Method, Cr2 timeline, failure modes, reviewer guide
-environment/            Python/Mac M1 setup notes
-checkpoints_manifest/   Hash/checkpoint manifests and external-artifact instructions
+paper/                                  latest and historical manuscript drafts
+data/primary_v23_en2_from_zero/         extracted primary v23 run files
+data/supporting_v22_from_zero/          extracted complete v22 run files
+code/v23_clean_en2_engine/              executable clean v23 source
+code/v22_clean_engine/                  executable clean v22 source
+analysis/                               review plots/CSVs/markdown
+tables/run_summary.csv                  endpoint summary
+artifacts/                              original raw result/code archives
+scripts/verify_primary_results.py       quick endpoint verification
+scripts/reproduce_v23_from_zero.sh      rerun v23 primary calculation
 ```
 
-## Quick validation
+## Quick verification
 
 ```bash
-python3 scripts/verify_qc_results.py
-python3 scripts/render_current_tables.py
+python3 scripts/verify_primary_results.py
 ```
 
-## Updating Cr2 CAS(12,12)
-
-When the final Cr2 CAS(12,12) run completes, prepare a JSON file with the updated result and run:
+## Reproduce the primary v23 run
 
 ```bash
-python3 scripts/update_cr2_cas12.py --input new_cr2_cas12_result.json
-python3 scripts/verify_qc_results.py
+cd code/v23_clean_en2_engine
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cd ../..
+RUN=1 scripts/reproduce_v23_from_zero.sh
 ```
 
-See `docs/cr2_update_protocol.md` for the expected schema.
+The original run reached 0.494 mHa at 102,001 determinants in about 19.5 minutes on an Apple M1 laptop-class machine. Runtime may vary by hardware and PySCF/BLAS configuration.
 
-## Large artifacts
+## Data provenance
 
-Large checkpoint files, Hamiltonian caches, and full trained model checkpoints should not be committed directly to Git history. Use GitHub Releases, Git LFS, Zenodo, OSF, or another archival backend. Record every artifact in `checkpoints_manifest/external_artifacts.md` with SHA256 hashes.
+Primary extracted files:
+
+- `data/primary_v23_en2_from_zero/cr2_v23_clean_final.json`
+- `data/primary_v23_en2_from_zero/progress.csv`
+- `data/primary_v23_en2_from_zero/selected_pairs_final.npy`
+- `data/primary_v23_en2_from_zero/selected_coeff_final.npy`
+- `data/primary_v23_en2_from_zero/top_determinants_final.csv`
+
+All files have SHA256 checksums in `checksums_sha256.txt`; a detailed manifest is in `MANIFEST.csv` and `MANIFEST.json`.
+
+## Important caveat
+
+The clean v22/v23 results are standalone clean-solver results using PySCF active-space integrals and direct `spin1` contractions. They are not direct continuations of the fragile legacy v21.3 Pauli/Jordan-Wigner checkpoint lineage.
+
+## Third-party literature
+
+Third-party PDF papers are not redistributed here. See `docs/EXCLUDED_THIRD_PARTY_PAPERS.md` and the manuscript bibliography.

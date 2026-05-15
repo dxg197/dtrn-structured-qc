@@ -1,5 +1,0 @@
-system,active_space,method,dimension,E_var_Ha,E_ref_Ha,gap_mHa,N,Sz,S2,status,paper_safe,notes
-Cr2,"CAS(8,8)","qc-pairgadtrn VQE, v14.16",full fixed sector,-2086.493652,-2086.493924,0.271,8.00000224,0.0,5.38e-07,sub-mHa validated,True,Fixed-sector exact-reference validation; direct dense-float64 and FastPauli Hamiltonians agree.
-Cr2,"CAS(10,10)",v19 natural-orbital selected-CI,8176,-2086.6244525,-2086.6249357,0.483,10.0,0.0,,chemical accuracy validated,True,Rank-10 determinant at step037 collapsed gap from 2.207 mHa to 0.483 mHa.
-Cr2,"CAS(12,12)",v21.3 natural-orbital selected-CI checkpoint; v21.4b restart in progress,16026,-2086.649342,-2086.650833304065,1.491,12.0,0.0,,approaching sub-mHa; update before submission,True,"v38 current checkpoint row: 16,026 determinants / 1.491 mHa. Rank-10 candidate-pool opening at 9,126 determinants was the major unlock. Replace this row when final CAS(12,12) continuation completes."
-Fe2,"CAS(8,8)",v2.20b Hamiltonian-coupling selected-CI,2487,-2524.617086,-2524.617352389061,0.266,,,9.52e-05,sub-mHa validated,True,Exact native S=0 PySCF direct-spin0 FCI reference. 2267-det confirmation run reached 0.440 mHa.

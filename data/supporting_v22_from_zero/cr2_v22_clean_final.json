@@ -1,0 +1,16 @@
+{
+  "schema": "cr2v22_clean_checkpoint_v1",
+  "tag": "final",
+  "selected_dim": 100001,
+  "E_var": -2086.6503024329195,
+  "E_ref": -2086.650833315363,
+  "gap_mHa": 0.5308824433996051,
+  "ncas": 12,
+  "nelecas": 12,
+  "full_sector_size": 853776,
+  "engine": "clean_full_sector_residual_selected_ci",
+  "hamiltonian": "PySCF active-space integrals; direct_spin1 contraction; no Pauli cache",
+  "diagnostics": {
+    "wall_seconds": 2362.043786048889
+  }
+}
