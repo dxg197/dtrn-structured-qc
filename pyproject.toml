@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gg-llm-optimizer"
+version = "0.4.3"
+description = "Data-center LLM benchmark ingestion, optimization planning, quantization comparison, DTRN replacement scouting, and reporting tools"
+requires-python = ">=3.9"
+
+[project.scripts]
+ggllm-opt = "ggllm_compression.unified_cli:main"
+ggllm-compress = "ggllm_compression.cli:main"
+ggllm-dc-optimize = "ggllm_compression.datacenter_cli:main"
+ggllm-ingest-bench = "ggllm_compression.benchmark_cli:main"
+
+[tool.setuptools]
+packages = ["ggllm_compression"]
