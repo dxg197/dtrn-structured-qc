@@ -1,0 +1,56 @@
+{
+  "schema": "gg_llm_dtrn_replacement_candidates_v0_4_3",
+  "candidates": [
+    {
+      "module_path": "model.layers.12.mlp.down_proj",
+      "module_type": "dense_mlp_projection",
+      "candidate_type": "block_dtrn",
+      "baseline_params": 67108864,
+      "candidate_params": 58720256,
+      "baseline_quality_score": 0.812,
+      "candidate_quality_score": 0.813,
+      "baseline_long_context_score": 0.764,
+      "candidate_long_context_score": 0.764,
+      "baseline_p95_latency_ms": 142.0,
+      "candidate_p95_latency_ms": 139.0,
+      "baseline_tokens_per_second": 5120.0,
+      "candidate_tokens_per_second": 5200.0,
+      "baseline_failure_rate": 0.0,
+      "candidate_failure_rate": 0.0
+    },
+    {
+      "module_path": "model.layers.18.self_attn.q_proj",
+      "module_type": "attention_projection",
+      "candidate_type": "dtrn_bottleneck",
+      "baseline_params": 16777216,
+      "candidate_params": 15728640,
+      "baseline_quality_score": 0.812,
+      "candidate_quality_score": 0.812,
+      "baseline_long_context_score": 0.764,
+      "candidate_long_context_score": 0.763,
+      "baseline_p95_latency_ms": 142.0,
+      "candidate_p95_latency_ms": 142.0,
+      "baseline_tokens_per_second": 5120.0,
+      "candidate_tokens_per_second": 5120.0,
+      "baseline_failure_rate": 0.0,
+      "candidate_failure_rate": 0.0
+    },
+    {
+      "module_path": "model.layers.4.mlp.gate_proj",
+      "module_type": "dense_mlp_projection",
+      "candidate_type": "tensor_train",
+      "baseline_params": 33554432,
+      "candidate_params": 29884416,
+      "baseline_quality_score": 0.812,
+      "candidate_quality_score": 0.807,
+      "baseline_long_context_score": 0.764,
+      "candidate_long_context_score": 0.760,
+      "baseline_p95_latency_ms": 142.0,
+      "candidate_p95_latency_ms": 140.0,
+      "baseline_tokens_per_second": 5120.0,
+      "candidate_tokens_per_second": 5210.0,
+      "baseline_failure_rate": 0.0,
+      "candidate_failure_rate": 0.0
+    }
+  ]
+}
